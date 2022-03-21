@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         async fetchMovies() {
-            const response = await fetch('https://appadan.herokuapp.com/api/peliculas', { headers: {Authorization: `Bearer ${this.$auth.access_token}`}});
+            const response = await fetch('https://appadan.herokuapp.com/api/videos', { headers: {Authorization: `Bearer ${this.$auth.access_token}`}});
             this.movies = (await (response.json())).data;
         },
     },

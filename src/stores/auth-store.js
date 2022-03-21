@@ -15,7 +15,7 @@ export const useAuthStore = defineStore('auth',{
     actions: {
         async login(email, password) {
             try {
-                const response = await(await fetch('https://apigerard.herokuapp.com/api/login/', {
+                const response = await(await fetch('https://appadan.herokuapp.com/api/login/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify({ email, password })
