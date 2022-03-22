@@ -1,43 +1,38 @@
 <template>
-    <div v-if="$auth.isAuthenticated">
+    <!-- <div v-if="$auth.isAuthenticated">
         <p>Welcome {{ $auth.email }}!</p>
-        <router-link to="/logout">Logout</router-link>    
-        <div class="movie-list">
-        <div class="movie" v-for="movie in movies" :key="movie.id">
-            <router-link :to="`/movie/${movie.id}`">
-                <h3>{{ movie.title }}</h3>
-                <img :src="`https://apigerard.herokuapp.com/img/movies/thumbnailmk2/img${movie.id}.jpg`">
-            <h3>{{ movie.title }}</h3>
-            <img :src="`https://apigerard.herokuapp.com/img/movies/thumbnailmk2/img${movie.id}.jpg`">
-            </router-link>
-        </div>
-        </div>
-    </div>
+        <router-link to="/logout">Logout</router-link>     -->
+        <Header></Header>
+        <MovieList></MovieList>
+    <!-- </div>
     <div v-else>
         <p>Please login:</p>
         <router-link to="/login">Login</router-link>
         <router-link to="/register">Register</router-link>
-    </div>
+    </div> -->
 </template>
 
 <script>
+import Header from "../components/Header.vue";
+import MovieList from "../components/MovieList.vue";
 export default {
-    created(){
-        if(this.$auth.isAuthenticated){
+    created() {
+        if (this.$auth.isAuthenticated) {
             this.fetchMovies();
         }
     },
     data() {
         return {
             movies: [],
-        }
+        };
     },
     methods: {
         async fetchMovies() {
-            const response = await fetch('https://appadan.herokuapp.com/api/videos', { headers: {Authorization: `Bearer ${this.$auth.access_token}`}});
+            const response = await fetch("https://appadan.herokuapp.com/api/videos", { headers: { Authorization: `Bearer ${this.$auth.access_token}` } });
             this.movies = (await (response.json())).data;
         },
     },
+    components: { Header, MovieList }
 }
 </script>
 

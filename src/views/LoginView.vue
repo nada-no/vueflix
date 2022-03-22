@@ -18,12 +18,13 @@ export default {
     },
     data() {
         return {
-            email: 'user@user.com', password: 'useruser'
+            email: 'admin@admin.com', password: 'admin'
             // email: '', password: ''
         }
     },
     methods: {
         async login() {
+            console.log("login.....");
             this.$auth.login(this.email, this.password);
         }
     }
