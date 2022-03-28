@@ -3,7 +3,7 @@
         <p>Welcome {{ $auth.email }}!</p>
         <router-link to="/logout">Logout</router-link>     -->
         <Header></Header>
-        <MovieList></MovieList>
+        <MovieList :movies="movies"></MovieList>
     <!-- </div>
     <div v-else>
         <p>Please login:</p>
@@ -17,9 +17,9 @@ import Header from "../components/Header.vue";
 import MovieList from "../components/MovieList.vue";
 export default {
     created() {
-        if (this.$auth.isAuthenticated) {
+        //if (this.$auth.isAuthenticated) {
             this.fetchMovies();
-        }
+        //}
     },
     data() {
         return {
@@ -30,6 +30,7 @@ export default {
         async fetchMovies() {
             const response = await fetch("https://appadan.herokuapp.com/api/videos", { headers: { Authorization: `Bearer ${this.$auth.access_token}` } });
             this.movies = (await (response.json())).data;
+            console.log(this.movies);
         },
     },
     components: { Header, MovieList }

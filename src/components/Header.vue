@@ -1,10 +1,9 @@
 <template>
   <div class="flex">
-    <h2>VueFlix</h2>
+    <h2><router-link to="/">VueFlix</router-link></h2>
     <div>
       <ul class="header">
-        <li>Películas</li>
-        <li>Series</li>
+        <li><router-link to="/">Películas</router-link></li>
         <li>Mis Favoritas</li>
         <span v-if="$auth.isAuthenticated">
           <li>Hola {{ $auth.email }}</li>
