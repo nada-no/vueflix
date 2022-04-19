@@ -3,7 +3,7 @@
     <div class="movie" v-for="movie in movies" :key="movie.id">
       <router-link :to="`/watch/${movie.idVideo}`">
         <h3>{{ movie.title }}</h3>
-        <img
+        <img class="card"
           :src="`https://appadan.herokuapp.com/${movie.image}`"
         />
       </router-link>

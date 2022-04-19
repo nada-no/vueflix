@@ -1,9 +1,13 @@
 <template>
     <Header></Header>
-     <video width="320" height="240" controls>
-        <source :src="'https://appadan.herokuapp.com' + movie.trailer" type="video/mp4"/>
+     <!-- <video width="320" height="240" controls>
+        <source :src="'https://appadan.herokuapp.com' + movie.trailer" type="video/mp4">
 Your browser does not support the video tag.
-</video> 
+</video>  -->
+<video width="320" height="240" controls>
+  <source :src='"https://appadan.herokuapp.com" + movie.trailer' type="video/mp4">
+  Your browser does not support the video tag.
+</video>
    
     <h2>{{movie.title}}</h2>
     <h3>Año</h3>
@@ -30,9 +34,12 @@ export default {
         async fetchMovie() {
             const response = await fetch(`https://appadan.herokuapp.com/api/video/${this.$route.params.id}`, { headers: { Authorization: `Bearer ${this.$auth.access_token}` } });
             this.movie = (await (response.json())).data;
-            console.log("https://appadan.herokuapp.com" + movie.trailer);
+            console.log("https://appadan.herokuapp.com" + this.movie.trailer);
         },
     },
-    components: { Header }
+    components: { Header },
+    // props: {
+    //     url: "https://appadan.herokuapp.com" + movie.trailer
+    // }
 }
 </script>

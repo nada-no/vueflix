@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <h2><router-link to="/">VueFlix</router-link></h2>
+    <h2><router-link id="logo" to="/">VueFlix</router-link></h2>
     <div>
       <ul class="header">
         <li><router-link to="/">Películas</router-link></li>

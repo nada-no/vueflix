@@ -10,7 +10,7 @@
 body {
   min-height: 100vh;
   color: white;
-  background: darkblue;
+  background: #1a1a1a;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
@@ -19,19 +19,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #b30000;
+  transition: color 0.5s;
+}
+
 .header {
-  margin-top: 20px;
+  margin-top: 50px;
+  font-size: 2vh;
 }
 
 .header li {
   list-style-image: none;
   display: inline;
   padding: 20px;
-  margin-top: 24px;
 }
 
 .flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
+}
+
+.card {
+  height: 400px;
+  width: 260px;
+}
+
+.movie{
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.movie:hover{
+  background-color: rgba(179, 0, 0,0.7);
+  transition: background-color 0.5s;
+}
+
+#logo {
+  font-size: 5vh;
+  flex-grow: 2;
+  color: #b30000;
+  font-family: Arial, Helvetica, sans-serif;
 }
